@@ -7,6 +7,7 @@
  * # AboutCtrl
  * Controller of the pooIhmExemplesApp
  */
+
 angular.module('pooIhmExemplesApp')
   .controller('UsersCtrl', ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
     $scope.awesomeThings = [
@@ -14,6 +15,11 @@ angular.module('pooIhmExemplesApp')
       'AngularJS',
       'Karma'
     ];
+
+    $scope.myJsFunc = function(num){
+      //alert(nom);
+      window.open('http://localhost:9000/#/users/'+num,'Détails Elève','menubar=no, scrollbars=no, top=100, left=100, width=350, height=300');
+    };
 
     $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Users')
       .success(function(data) {
@@ -29,3 +35,5 @@ angular.module('pooIhmExemplesApp')
       });
     }
   }]);
+
+
