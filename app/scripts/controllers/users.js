@@ -10,11 +10,6 @@
 
 angular.module('pooIhmExemplesApp')
   .controller('UsersCtrl', ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
 
     $scope.myJsFunc = function(num){
       //alert(nom);
