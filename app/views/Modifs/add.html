@@ -1,9 +1,13 @@
 
-<form>
-  <div ng-repeat="lang in languages">
-    <label>{{lang.name}}</label>
-    <input type="range" min="0" max="4" ng-model="lang.value" >
-  </div>
-  <button ng-click="save()">Save</button>
-  <p>{{msg}}</p>
+<form  ng-submit="addUser()">
+  <table>
+    <tr><td><label>Nom</label></td> <td><input type="text" name="nom" ng-model="userToAdd.name"/></td></tr>
+    <tr><td> <label>Prénom</label> </td> <td> <input type="text" name="prenom" ng-model="userToAdd.surname" /></td></tr>
+    <tr><td><label>E-mail</label> </td> <td><input type="text" name="email" ng-model="userToAdd.email"/></td></tr>
+    <tr><td><label>Site internet</label></td>  <td> <input type="text" name="website" ng-model="userToAdd.website"/></td></tr>
+  </table>
+  <input type="submit" value="Envoyer">
 </form>
+
+<p>{{userToAdd.name}}</p>
+<p>{{msg}}</p>

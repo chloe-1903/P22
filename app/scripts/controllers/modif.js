@@ -7,28 +7,41 @@
  * # AboutCtrl
  * Controller of the pooIhmExemplesApp
  */
-/*angular.module('pooIhmExemplesApp')
+angular.module('pooIhmExemplesApp')
   .controller('ModifCtrl', ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
 
-    $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Users')
-      .success(function(data) {
-        $scope.users = data.data;
+   $scope.userToAdd = {
+     name: "",
+     surname: "",
+     email:"",
+     website:""
+   };
+
+    $scope.msg = 'Hello World!';
+
+
+    $scope.addUser = function(){
+      var res = $http.post('http://poo-ihm-2015-rest.herokuapp.com/api/Users', userToAdd);
+      res.success(function(data, status, headers, config) {
+        $scope.msg = data;
       });
+      res.error(function(data, status, headers, config) {
+        alert( "failure message: " + JSON.stringify({data: data}));
+      });
+      // Making the fields empty
+      //
+      $scope.userToAdd.name='';
+      $scope.userToAdd.surname='';
+      $scope.userToAdd.email='';
+      $scope.userToAdd.website='';
+    };
+  }]);
 
-    if($routeParams.userId) {
-      $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Users/' + $routeParams.userId)
-        .success(function(data) {
-          if (data.status == "success") {
-            $scope.currentUser = data.data;
-          }
-        });
-    }
-  }]);*/
+    /*$http.post('http://poo-ihm-2015-rest.herokuapp.com/api/Users', userToAdd)
+      .success(function(data) {
+        $scope.msg = reussi;
+      });/*
+
 
 //var app = angular.module('pooIhmExemplesApp', []);
 
