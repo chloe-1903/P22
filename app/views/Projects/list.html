@@ -1,0 +1,13 @@
+<form>
+  <label>Nom du projet</label> : <input type="text" name="nom" ng-model="SearchedProjects.title"/>
+  <label>Identifiant</label> : <input type="number" name="id" ng-model="SearchedProjects.id"/>
+</form>
+
+<div>
+  <h3>Liste des utilisateurs:</h3>
+  <ul>
+    <li ng-repeat="project in projects | filter: SearchedProjects">
+      <a href="" ng-click="showProject('{{project.id}}')"> {{project.title}}</a>
+    </li>
+  </ul>
+</div>

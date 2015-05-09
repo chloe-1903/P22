@@ -6,11 +6,14 @@
     <file url="file://$PROJECT_DIR$/app/scripts/controllers/Modifs/change.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/scripts/controllers/Modifs/remove.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/scripts/controllers/modif.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/scripts/controllers/projects.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/styles/main.css" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/views/Modifs/add.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/views/Modifs/change.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/views/Modifs/modif.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/views/Modifs/remove.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/views/Projects/list.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/views/Projects/show.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/views/Users/list.html" charset="UTF-8" />
   </component>
 </project>

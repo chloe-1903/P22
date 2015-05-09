@@ -1,0 +1,15 @@
+ <h3>{{currentProject.title}}</h3>
+  <p>Projet n° {{currentProject.id}}</p>
+  <p>Année {{currentProject.year}}</p>
+  <p>Description: </p>
+  <p>{{currentProject.description}}</p>
+  <p>Elèves ayant participé à ce projet:</p>
+  <ul>
+    <li ng-repeat="user in currentProjectUsers">
+      {{user.name}} {{user.surname}} ({{getRole(currentProject.id, user.id)}})
+    </li>
+  </ul>
+
+
+
+

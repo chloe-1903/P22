@@ -54,6 +54,14 @@ angular
         templateUrl: 'views/Modifs/remove.html',
         controller: 'RemoveCtrl'
       })
+      .when('/projects' , {
+        templateUrl: 'views/Projects/list.html',
+        controller: 'ProjectsCtrl'
+      })
+      .when('/projects/:projectId', {
+        templateUrl: 'views/Projects/show.html',
+        controller: 'ProjectsCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
