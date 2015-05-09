@@ -24,8 +24,7 @@ angular
         controller: 'MainCtrl'
       })
       .when('/modif', {
-        templateUrl: '../views/Modifs/modif.html',
-        controller: 'ModifCtrl'
+        templateUrl: '../views/Modifs/modif.html'
       })
       .when('/users' , {
         templateUrl: 'views/Users/list.html',
@@ -37,15 +36,15 @@ angular
       })
       .when('/add', {
         templateUrl: 'views/Modifs/add.html',
-        controller: 'ModifCtrl'
+        controller: 'AddCtrl'
       })
       .when('/change', {
         templateUrl: 'views/Modifs/change.html',
-        controller: 'ModifCtrl'
+        controller: 'ChangeCtrl'
       })
       .when('/remove', {
         templateUrl: 'views/Modifs/remove.html',
-        controller: 'ModifCtrl'
+        controller: 'RemoveCtrl'
       })
       .otherwise({
         redirectTo: '/'
