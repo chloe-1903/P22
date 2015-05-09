@@ -9,9 +9,13 @@
  */
 
 angular.module('pooIhmExemplesApp')
-  .controller('RemoveCtrl', ['$scope', '$http', function ($scope, $http) {
+  .controller('RemoveCtrl', ['$scope', '$http','$routeParams', function ($scope, $http, $routeParams) {
 
     $scope.idToDelete=null;
+
+    if($routeParams.userId) {
+      $scope.idToDelete = $routeParams.userId;
+    }
 
     $scope.msg = '';
 

@@ -9,13 +9,17 @@
  */
 
 angular.module('pooIhmExemplesApp')
-  .controller('ChangeCtrl', ['$scope', '$http', function ($scope, $http) {
+  .controller('ChangeCtrl', ['$scope', '$http','$routeParams', function ($scope, $http, $routeParams) {
 
     $scope.idToChange= null;
 
     $scope.msg = '';
 
-    $scope.changeUser1 = function() {
+    if($routeParams.userId) {
+      $scope.idToChange = $routeParams.userId;
+    }
+
+    if($scope.idToChange!= null) {
       $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Users/' + $scope.idToChange)
         .success(function (data) {
           if (data.status == "success") {
@@ -26,7 +30,7 @@ angular.module('pooIhmExemplesApp')
             $scope.msg = "Un problème est survenu, l'étudiant ne peut pas être modifié.";
           }
         });
-    };
+    }
 
     $scope.changeUser = function(){
       $scope.msg = "...";
@@ -40,8 +44,7 @@ angular.module('pooIhmExemplesApp')
         .error(function(data, status, headers, config) {
           alert( "failure message: " + JSON.stringify({data: data}));
         });
-      $scope.userToChange=null;
-      $scope.idToChange=null;
+      //window.location.replace("http://localhost:9000/#/users");
     };
 
   }]);

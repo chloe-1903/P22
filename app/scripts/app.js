@@ -42,7 +42,15 @@ angular
         templateUrl: 'views/Modifs/change.html',
         controller: 'ChangeCtrl'
       })
+      .when('/change/:userId', {
+        templateUrl: 'views/Modifs/change.html',
+        controller: 'ChangeCtrl'
+      })
       .when('/remove', {
+        templateUrl: 'views/Modifs/remove.html',
+        controller: 'RemoveCtrl'
+      })
+      .when('/remove/:userId', {
         templateUrl: 'views/Modifs/remove.html',
         controller: 'RemoveCtrl'
       })

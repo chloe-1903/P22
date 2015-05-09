@@ -2,18 +2,17 @@
 
 /**
  * @ngdoc function
- * @name pooIhmExemplesApp.controller:AboutCtrl
+ * @name pooIhmExemplesApp.controller:UsersCtrl
  * @description
- * # AboutCtrl
+ * # UsersCtrl
  * Controller of the pooIhmExemplesApp
  */
 
 angular.module('pooIhmExemplesApp')
   .controller('UsersCtrl', ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
 
-    $scope.myJsFunc = function(num){
-      //alert(nom);
-      window.open('http://localhost:9000/#/users/'+num,'Détails Elève','menubar=no, scrollbars=no, top=100, left=100, width=350, height=300');
+    $scope.showUser = function(num){
+      window.open('http://localhost:9000/#/users/'+num,'Détails Elève','menubar=no, scrollbars=no, top=100, left=100, width=360, height=350');
     };
 
     $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Users')
@@ -29,6 +28,7 @@ angular.module('pooIhmExemplesApp')
         }
       });
     }
+
   }]);
 
 
