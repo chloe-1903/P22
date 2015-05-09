@@ -1,1 +1,18 @@
-change
+<form  ng-submit="changeUser1()">
+  <table>
+    <tr><td><label>Id</label></td> <td><input type="text" name="id" ng-model="idToChange"/></td></tr>
+  </table>
+  <input type="submit" value="Valider">
+</form>
+
+<form  ng-submit="changeUser()">
+  <table>
+    <tr><td><label>Nom</label></td> <td><input type="text" name="nom" ng-model="userToChange.name"/></td></tr>
+    <tr><td> <label>Prénom</label> </td> <td> <input type="text" name="prenom" ng-model="userToChange.surname" /></td></tr>
+    <tr><td><label>E-mail</label> </td> <td><input type="text" name="email" ng-model="userToChange.email"/></td></tr>
+    <tr><td><label>Site internet</label></td>  <td> <input type="text" name="website" ng-model="userToChange.website"/></td></tr>
+  </table>
+  <input type="submit" value="Modifier">
+</form>
+
+<p>{{msg}}</p>

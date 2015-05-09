@@ -1,1 +1,8 @@
-remove
+<form  ng-submit="deleteUser()">
+  <table>
+    <tr><td><label>Id</label></td> <td><input type="text" name="id" ng-model="userToDelete.id"/></td></tr>
+  </table>
+  <input type="submit" value="Supprimer">
+</form>
+
+<p>{{msg}}</p>

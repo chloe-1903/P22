@@ -11,30 +11,84 @@ angular.module('pooIhmExemplesApp')
   .controller('ModifCtrl', ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
 
    $scope.userToAdd = {
-     name: "",
-     surname: "",
-     email:"",
-     website:""
+     name: null,
+     surname: null
    };
 
-    $scope.msg = 'Hello World!';
+    $scope.userToDelete= {
+      id:null
+    };
 
+    $scope.idToChange= null;
+
+    $scope.msg = '';
 
     $scope.addUser = function(){
-      var res = $http.post('http://poo-ihm-2015-rest.herokuapp.com/api/Users', userToAdd);
-      res.success(function(data, status, headers, config) {
-        $scope.msg = data;
-      });
-      res.error(function(data, status, headers, config) {
+      $scope.msg = '...';
+      $scope.res=$http.post('http://poo-ihm-2015-rest.herokuapp.com/api/Users/', $scope.userToAdd)
+      .success(function(data) {
+          if (data.status == "success") {
+            $scope.msg = "Le nouvel élève a bien été entré.";
+          }
+          else {
+            $scope.msg = "Un problème est survenu, l'étudiant n'a pas pu être ajouté à la liste.";
+          }
+      })
+      .error(function(data, status, headers, config) {
         alert( "failure message: " + JSON.stringify({data: data}));
       });
-      // Making the fields empty
-      //
-      $scope.userToAdd.name='';
-      $scope.userToAdd.surname='';
-      $scope.userToAdd.email='';
-      $scope.userToAdd.website='';
+      //$scope.userToAdd.name='';
+      //$scope.userToAdd.surname='';
     };
+
+    $scope.changeUser1 = function() {
+      $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Users/' + $scope.idToChange)
+        .success(function (data) {
+          if (data.status == "success") {
+              $scope.msg = "Vous pouvez maintenant modifier les données de l'élève.";
+              $scope.userToChange= data.data;
+          }
+          else {
+            $scope.msg = "Un problème est survenu, l'étudiant ne peut pas être modifié.";
+          }
+        });
+    };
+
+    $scope.changeUser = function(){
+      $scope.msg = "...";
+      $scope.url= "http://poo-ihm-2015-rest.herokuapp.com/api/Users/"+ $scope.idToChange;
+      $scope.res=$http.put($scope.url, $scope.userToChange)
+      .success(function(data, status, headers, config) {
+          if (data.status == "success") {
+            $scope.msg = "Modification effectuée.";
+          }
+      })
+      .error(function(data, status, headers, config) {
+        alert( "failure message: " + JSON.stringify({data: data}));
+      });
+      $scope.userToChange=null;
+      $scope.idToChange=null;
+    };
+
+    $scope.deleteUser = function() {
+      $scope.url = "http://poo-ihm-2015-rest.herokuapp.com/api/Users/" + $scope.userToDelete.id;
+      $scope.msg = '...';
+      $scope.res = $http.delete($scope.url)
+        .success(function (data) {
+          if (data.status == "success") {
+            $scope.msg = "Suppression effectuée.";
+          }
+          else {
+            $scope.msg = "Un problème est survenu, l'étudiant n'a pas pu être supprimé de la liste.";
+          }
+        })
+        .error(function (data, status, headers, config) {
+          alert("failure message: " + JSON.stringify({data: data}));
+        });
+
+      $scope.userToDelete.id=null;
+    };
+
   }]);
 
     /*$http.post('http://poo-ihm-2015-rest.herokuapp.com/api/Users', userToAdd)
