@@ -58,6 +58,10 @@ angular
         templateUrl: '../views/ModifsProjects/change.html',
         controller: 'ChangeProjectsCtrl'
       })
+      .when('/changeUserProject/:projectId', {
+        templateUrl: '../views/ModifsProjects/changeUserProject.html',
+        controller: 'ChangeProjectsCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

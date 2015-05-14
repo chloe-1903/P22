@@ -1,10 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+<div>Ajouter un élève à ce projet:
+  <select ng-model="userToAdd" ng-options="user as (user.name + ' ' + user.surmname) for user in users">
+    <option value="">Sélectionnez un élève</option>
+  </select>
+  <button ng-click="addUser()">Ajouter</button>
+</div>
 
-</body>
-</html>
+<div>Supprimer un élève de ce projet:
+  <select ng-model="userToRemove" ng-options="userToRemove as (userToRemove.name + ' ' + userToRemove.surmname) for userToRemove in usersInProject">
+    <option value="">Sélectionnez un élève</option>
+  </select>
+  <button ng-click="removeUser()">Supprimer</button>
+</div>
+
+{{msg}}
