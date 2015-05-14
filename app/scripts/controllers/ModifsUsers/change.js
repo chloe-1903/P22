@@ -23,8 +23,17 @@ angular.module('pooIhmExemplesApp')
       $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Users/' + $scope.idToChange)
         .success(function (data) {
           if (data.status == "success") {
-            $scope.msg = "Vous pouvez maintenant modifier les données de l'élève.";
             $scope.userToChange= data.data;
+          }
+          else {
+            $scope.msg = "Un problème est survenu, l'étudiant ne peut pas être modifié.";
+          }
+        });
+      $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Users/' + $scope.idToChange + "/Roles")
+        .success(function (data) {
+          if (data.status == "success") {
+            $scope.msg = "Vous pouvez maintenant modifier les données de l'élève.";
+            $scope.userRoles= data.data;
           }
           else {
             $scope.msg = "Un problème est survenu, l'étudiant ne peut pas être modifié.";
@@ -36,6 +45,16 @@ angular.module('pooIhmExemplesApp')
       $scope.msg = "...";
       $scope.url= "http://poo-ihm-2015-rest.herokuapp.com/api/Users/"+ $scope.idToChange;
       $scope.res=$http.put($scope.url, $scope.userToChange)
+        .success(function(data, status, headers, config) {
+          if (data.status == "success") {
+            //$scope.msg = "Modification effectuée.";
+          }
+        })
+        .error(function(data, status, headers, config) {
+          alert( "failure message: " + JSON.stringify({data: data}));
+        });
+      $scope.res=$http.put("http://poo-ihm-2015-rest.herokuapp.com/api/Users/"+$scope.idToChange+ "/Roles", $scope.userRoles)
+        //Apparament il faut faire projet par projet
         .success(function(data, status, headers, config) {
           if (data.status == "success") {
             $scope.msg = "Modification effectuée.";

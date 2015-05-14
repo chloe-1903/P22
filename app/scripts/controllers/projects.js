@@ -36,24 +36,16 @@ angular.module('pooIhmExemplesApp')
         });
     };
 
-    $scope.getRole = function(projectId, userId){
-      $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Users/' + userId+ '/Roles')
+    $scope.userWorking=null;
+
+      $scope.roles="1";
+      $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Users/' + $scope.userWorking+ '/Roles')
         .success(function(data) {
+          $scope.roles="2";
           if (data.status == "success") {
             $scope.roles = data.data;
           }
-        })
-      $scope.projectIndex=0;
-      /*angular.forEach($scope.roles, function(value,key){
-      Pb: on entre pas dans le forEach
-        if (value.id==projectId){
-          $scope.projectIndex=key;
-        }
-      });*/
-      return $scope.roles[$scope.projectIndex].name;
-    };
-
-
+        });
   }]);
 
 

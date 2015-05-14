@@ -24,7 +24,7 @@ angular
         controller: 'MainCtrl'
       })
       .when('/modif', {
-        templateUrl: '../views/Modifs/modif.html'
+        templateUrl: '../views/ModifsUsers/modif.html'
       })
       .when('/users' , {
         templateUrl: 'views/Users/list.html',
@@ -35,23 +35,15 @@ angular
         controller: 'UsersCtrl'
       })
       .when('/add', {
-        templateUrl: 'views/Modifs/add.html',
+        templateUrl: '../views/ModifsUsers/add.html',
         controller: 'AddCtrl'
       })
-      .when('/change', {
-        templateUrl: 'views/Modifs/change.html',
-        controller: 'ChangeCtrl'
-      })
       .when('/change/:userId', {
-        templateUrl: 'views/Modifs/change.html',
+        templateUrl: '../views/ModifsUsers/change.html',
         controller: 'ChangeCtrl'
-      })
-      .when('/remove', {
-        templateUrl: 'views/Modifs/remove.html',
-        controller: 'RemoveCtrl'
       })
       .when('/remove/:userId', {
-        templateUrl: 'views/Modifs/remove.html',
+        templateUrl: '../views/ModifsUsers/remove.html',
         controller: 'RemoveCtrl'
       })
       .when('/projects' , {
@@ -61,6 +53,10 @@ angular
       .when('/projects/:projectId', {
         templateUrl: 'views/Projects/show.html',
         controller: 'ProjectsCtrl'
+      })
+      .when('/changeProject/:projectId', {
+        templateUrl: '../views/ModifsProjects/change.html',
+        controller: 'ChangeProjectsCtrl'
       })
       .otherwise({
         redirectTo: '/'

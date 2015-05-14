@@ -1,0 +1,9 @@
+<form  ng-submit="changeProject()">
+  <table>
+    <tr><td> <label>Nom</label> </td> <td> <input type="text" name="nom" ng-model="projectToChange.title" /></td></tr>
+    <tr><td><label>Description</label> </td> <td><input type="text" name="description" ng-model="projectToChange.description"/></td></tr>
+    <tr><td><label>Année</label></td>  <td> <input type="number" name="year" ng-model="projectToChange.year"/></td></tr>
+  </table>
+  <input type="submit" value="Modifier">
+</form>
+<p>{{msg}}</p>

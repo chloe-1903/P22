@@ -4,7 +4,7 @@
 </form>
 
 <div>
-  <h3>Liste des utilisateurs:</h3>
+  <h3>Liste des projets:</h3>
   <ul>
     <li ng-repeat="project in projects | filter: SearchedProjects">
       <a href="" ng-click="showProject('{{project.id}}')"> {{project.title}}</a>

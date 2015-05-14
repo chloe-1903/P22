@@ -6,10 +6,16 @@
   <p>Elèves ayant participé à ce projet:</p>
   <ul>
     <li ng-repeat="user in currentProjectUsers">
-      {{user.name}} {{user.surname}} ({{getRole(currentProject.id, user.id)}})
+      {{user.name}} {{user.surname}} {{userWorking=user}}
+    Role: {{roles}}
+      <li ng-repeat="role in roles | filter:currentProject.id " >
+      Role: {{role.name}}
+      </li>
     </li>
   </ul>
 
+ <p><a href="http://localhost:9000/#/changeProject/{{currentProject.id}}">>Modifier les informations sur le projet</a></p>
+ <p><a href="http://localhost:9000/#/changeUserProject/{{currentProject.id}}">>Modifier les élèves ayant participé à ce projet</a></p>
 
 
 
