@@ -69,12 +69,12 @@ angular.module('pooIhmExemplesApp')
       $scope.msg = "...";
       $scope.url= "http://poo-ihm-2015-rest.herokuapp.com/api/Projects/"+ $scope.idToChange + "/Users/" + $scope.userToAdd.id;
       $scope.res=$http.put($scope.url, $scope.userToAdd)
-        .success(function(data, status, headers, config) {
+        .success(function(data) {
           if (data.status == "success") {
             $scope.msg = "Ajout effectué.";
           }
         })
-        .error(function(data, status, headers, config) {
+        .error(function(data) {
           alert( "failure message: " + JSON.stringify({data: data}));
         });
     };
@@ -85,12 +85,12 @@ angular.module('pooIhmExemplesApp')
       $scope.msg = "...";
       $scope.url= "http://poo-ihm-2015-rest.herokuapp.com/api/Projects/"+ $scope.idToChange + "/Users/" + $scope.userToRemove.id;
       $scope.res=$http.delete($scope.url)
-        .success(function(data, status, headers, config) {
+        .success(function(data) {
           if (data.status == "success") {
             $scope.msg = "Suppression effectuée.";
           }
         })
-        .error(function(data, status, headers, config) {
+        .error(function(data) {
           alert( "failure message: " + JSON.stringify({data: data}));
         });
     };

@@ -1,0 +1,11 @@
+
+<form  ng-submit="addProject()">
+  <table>
+    <tr><td><label>Titre</label></td> <td><input type="text" name="titre" ng-model="projectToAdd.title"/></td></tr>
+    <tr><td> <label>Description</label> </td> <td> <textarea name="description" rows="4"  ng-model="projectToAdd.description" /></td></tr>
+    <tr><td><label>Année</label></td> <td><input type="number" name="year" ng-model="projectToAdd.year"/></td></tr>
+  </table>
+  <input type="submit" value="Envoyer">
+</form>
+
+<p>{{msg}}</p>

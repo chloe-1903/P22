@@ -2,14 +2,18 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/app/scripts/app.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/scripts/controllers/ModifsProjects/add.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/scripts/controllers/ModifsProjects/change.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/scripts/controllers/ModifsProjects/remove.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/scripts/controllers/ModifsUsers/add.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/scripts/controllers/ModifsUsers/change.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/scripts/controllers/ModifsUsers/remove.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/scripts/controllers/projects.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/styles/main.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/views/ModifsProjects/addProject.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/views/ModifsProjects/change.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/views/ModifsProjects/changeUserProject.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/views/ModifsProjects/removeProject.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/views/ModifsUsers/add.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/views/ModifsUsers/change.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/views/ModifsUsers/modif.html" charset="UTF-8" />
