@@ -12,7 +12,7 @@ angular.module('pooIhmExemplesApp')
   .controller('ProjectsCtrl', ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
 
     $scope.showProject = function(num){
-      window.open('http://localhost:9000/#/projects/'+num,'Détails Elève','menubar=no, scrollbars=no, top=100, left=100, width=430, height=460');
+      window.open('#/projects/'+num,'Détails Elève','menubar=no, scrollbars=no, top=100, left=100, width=440, height=470');
     };
 
     $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Projects')

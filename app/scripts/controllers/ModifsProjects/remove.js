@@ -2,9 +2,9 @@
 
 /**
  * @ngdoc function
- * @name pooIhmExemplesApp.controller:RemoveCtrl
+ * @name pooIhmExemplesApp.controller:RemoveProjectCtrl
  * @description
- * # RemoveCtrl
+ * # RemoveProjectCtrl
  * Controller of the pooIhmExemplesApp
  */
 
@@ -20,15 +20,15 @@ angular.module('pooIhmExemplesApp')
     $scope.msg = '';
 
     $scope.deleteProject = function() {
-      $scope.url = "http://poo-ihm-2015-rest.herokuapp.com/api/Projects/" + $scope.idToDelete;
+      $scope.url = 'http://poo-ihm-2015-rest.herokuapp.com/api/Projects/' + $scope.idToDelete;
       $scope.msg = '...';
       $scope.res = $http.delete($scope.url)
         .success(function (data) {
           if (data.status == "success") {
-            $scope.msg = "Suppression effectuée.";
+            $scope.msg = 'Suppression effectuée.';
           }
           else {
-            $scope.msg = "Un problème est survenu, le projet n'a pas pu être supprimé de la liste.";
+            $scope.msg = 'Un problème est survenu, le projet n\'a pas pu être supprimé de la liste.';
           }
         })
         .error(function (data) {

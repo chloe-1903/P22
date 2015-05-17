@@ -2,9 +2,9 @@
 
 /**
  * @ngdoc function
- * @name pooIhmExemplesApp.controller:ChangeCtrl
+ * @name pooIhmExemplesApp.controller:ChangeProjectsCtrl
  * @description
- * # ChangeCtrl
+ * # ChangeProjectsCtrl
  * Controller of the pooIhmExemplesApp
  */
 
@@ -22,7 +22,7 @@ angular.module('pooIhmExemplesApp')
             $scope.projectToChange= data.data;
           }
           else {
-            $scope.msg = "Un problème est survenu, le projet ne peut pas être modifié.";
+            $scope.msg = 'Un problème est survenu, le projet ne peut pas être modifié.';
           }
         });
       $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Projects/' + $scope.idToChange +"/Users")
@@ -31,7 +31,7 @@ angular.module('pooIhmExemplesApp')
             $scope.usersInProject= data.data;
           }
           else {
-            $scope.msg = "Un problème est survenu, le projet ne peut pas être modifié.";
+            $scope.msg = 'Un problème est survenu, le projet ne peut pas être modifié.';
           }
         });
       $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Users')
@@ -40,18 +40,18 @@ angular.module('pooIhmExemplesApp')
             $scope.users= data.data;
           }
           else {
-            $scope.msg = "Un problème est survenu, le projet ne peut pas être modifié.";
+            $scope.msg = 'Un problème est survenu, le projet ne peut pas être modifié.';
           }
         });
     }
 
     $scope.changeProject = function(){
-      $scope.msg = "...";
-      $scope.url= "http://poo-ihm-2015-rest.herokuapp.com/api/Projects/"+ $scope.idToChange;
+      $scope.msg = '...';
+      $scope.url= 'http://poo-ihm-2015-rest.herokuapp.com/api/Projects/'+ $scope.idToChange;
       $scope.res=$http.put($scope.url, $scope.projectToChange)
         .success(function(data) {
           if (data.status == "success") {
-            $scope.msg = "Modification effectuée.";
+            $scope.msg = 'Modification effectuée.';
           }
         })
         .error(function(data) {
@@ -61,11 +61,11 @@ angular.module('pooIhmExemplesApp')
 
     $scope.addUser = function(){
       $scope.msg = "...";
-      $scope.url= "http://poo-ihm-2015-rest.herokuapp.com/api/Projects/"+ $scope.idToChange + "/Users/" + $scope.userToAdd.id;
+      $scope.url= 'http://poo-ihm-2015-rest.herokuapp.com/api/Projects/'+ $scope.idToChange + '/Users/' + $scope.userToAdd.id;
       $scope.res=$http.put($scope.url, $scope.userToAdd)
         .success(function(data) {
           if (data.status == "success") {
-            $scope.msg = "Ajout effectué.";
+            $scope.msg = 'Ajout effectué.';
           }
         })
         .error(function(data) {
@@ -74,12 +74,12 @@ angular.module('pooIhmExemplesApp')
     };
 
     $scope.removeUser = function(){
-      $scope.msg = "...";
-      $scope.url= "http://poo-ihm-2015-rest.herokuapp.com/api/Projects/"+ $scope.idToChange + "/Users/" + $scope.userToRemove.id;
+      $scope.msg = '...';
+      $scope.url= 'http://poo-ihm-2015-rest.herokuapp.com/api/Projects/'+ $scope.idToChange + '/Users/' + $scope.userToRemove.id;
       $scope.res=$http.delete($scope.url)
         .success(function(data) {
           if (data.status == "success") {
-            $scope.msg = "Suppression effectuée.";
+            $scope.msg = 'Suppression effectuée.';
           }
         })
         .error(function(data) {

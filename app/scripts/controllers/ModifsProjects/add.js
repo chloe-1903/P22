@@ -27,7 +27,7 @@ angular.module('pooIhmExemplesApp')
             $scope.msg = "Le nouveau projet a bien été entré.";
           }
           else {
-            $scope.msg = "Un problème est survenu, le projet n'a pas pu être ajouté à la liste.";
+            $scope.msg = 'Un problème est survenu, le projet n\'a pas pu être ajouté à la liste.';
           }
         })
         .error(function(data, status, headers, config) {
