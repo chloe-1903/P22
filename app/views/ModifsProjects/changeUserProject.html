@@ -18,7 +18,7 @@
   </select>
   <tr><td> <label>Role dans ce projet</label> </td> <td> <input type="text" name="nom" ng-model="roleToChange.name" /></td></tr>
   <div ng-init="searchedRoles.ProjectId=idToChange">
-  <li ng-repeat="role in roles | filter:searchedRoles " ng-init="roleToChange.id=role.id" >
+      <li ng-repeat="role in roles | filter:searchedRoles " ng-init="roleToChange.id=role.id" >
   </div>
   <button ng-click="changeRoleUser()">Modifier</button>
 </div>

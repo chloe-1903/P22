@@ -1,16 +1,18 @@
-<form>
-  <label>Nom</label> : <input type="text" name="nom" ng-model="SearchedUsers.name"/>
-  <label>Prénom</label> : <input type="text" name="prenom" ng-model="SearchedUsers.surname" />
-  <label>Identifiant</label> : <input type="number" name="id" ng-model="SearchedUsers.id"/>
+<form class="form-inline" >
+  <span class="glyphicon glyphicon-search"></span>
+  <label>Nom</label> : <input class="form-control" type="text" name="nom" ng-model="SearchedUsers.name"/>
+  <label>Prénom</label> : <input class="form-control" type="text" name="prenom" ng-model="SearchedUsers.surname" />
+  <br/>
+  <p><label>Identifiant</label> : <input class="form-control" type="number" name="id" ng-model="SearchedUsers.id"/></p>
 </form>
-<br>
-<a href="#/add">>Ajouter un utilisateur</a>
-<br>
+
 <div>
 <h3>Liste des utilisateurs:</h3>
-<ul>
-<li ng-repeat="user in users | filter: SearchedUsers">
+<ul class="list-group">
+<li ng-repeat="user in users | filter: SearchedUsers" class="list-group-item">
   <a href="" ng-click="showUser('{{user.id}}')"> {{user.name}}, {{user.surname}}</a>
 </li>
 </ul>
 </div>
+
+<a href="#/add" class="btn btn-info" role="button">Ajouter un utilisateur</a>

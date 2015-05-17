@@ -1,15 +1,16 @@
-<form>
-  <label>Nom du projet</label> : <input type="text" name="nom" ng-model="SearchedProjects.title"/>
-  <label>Identifiant</label> : <input type="number" name="id" ng-model="SearchedProjects.id"/>
+<form class="form-inline">
+  <label>Nom du projet</label> : <input class="form-control" type="text" name="nom" ng-model="SearchedProjects.title"/>
+  <label>Identifiant</label> : <input class="form-control" type="number" name="id" ng-model="SearchedProjects.id"/>
+  <span class="glyphicon glyphicon-search"></span>
 </form>
-
-<p><a href="#/addProject">>Ajouter un projet</a></p>
 
 <div>
   <h3>Liste des projets:</h3>
-  <ul>
-    <li ng-repeat="project in projects | filter: SearchedProjects">
+  <ul class="list-group">
+    <li ng-repeat="project in projects | filter: SearchedProjects" class="list-group-item">
       <a href="" ng-click="showProject('{{project.id}}')"> {{project.title}}</a>
     </li>
   </ul>
 </div>
+
+<a href="#/addProject" class="btn btn-info" role="button">Ajouter un projet</a>

@@ -1,16 +1,16 @@
 <div>
   <h3>{{currentUser.surname}} {{currentUser.name}}</h3>
     <p>Numéro de l'étudiant:  {{currentUser.id}}</p>
-    <p>Adresse mail: {{currentUser.email}}</p>
+    <p><span class="glyphicon glyphicon-envelope"></span> Adresse mail: {{currentUser.email}} </p>
     <p>Site internet: <a href="{{currentUser.website}}">{{currentUser.website}}</a></p>
     <p>Projets:
-    <li ng-repeat="role in roles"> {{role.name}} - Projet {{getProjectName(role.ProjectId)}} </li>
+    <li ng-repeat="role in roles"> {{role.name}} - <a ng-href="#/projects/{{role.ProjectId}}"> Projet {{getProjectName(role.ProjectId)}}</a> </li>
     {{msg}}
     </p>
 </div>
 
 
-<p><a href="#/change/{{currentUser.id}}">>Modifier</a></p>
-<p><a href="#/remove/{{currentUser.id}}">>Supprimer</a></p>
+<p><a href="#/change/{{currentUser.id}}"> <span class="glyphicon glyphicon-edit"></span> Modifier</a></p>
+<p><a href="#/remove/{{currentUser.id}}"><span class="glyphicon glyphicon-remove"></span> Supprimer</a></p>
 
 
