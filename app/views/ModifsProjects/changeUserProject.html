@@ -1,15 +1,25 @@
 <div>Ajouter un élève à ce projet:
-  <select ng-model="userToAdd" ng-options="user as (user.name + ' ' + user.surmname) for user in users">
+  <select ng-model="userToAdd" ng-options="user as (user.name + ' ' + user.surname) for user in users">
     <option value="">Sélectionnez un élève</option>
   </select>
   <button ng-click="addUser()">Ajouter</button>
 </div>
 
 <div>Supprimer un élève de ce projet:
-  <select ng-model="userToRemove" ng-options="userToRemove as (userToRemove.name + ' ' + userToRemove.surmname) for userToRemove in usersInProject">
+  <select ng-model="userToRemove" ng-options="userToRemove as (userToRemove.name + ' ' + userToRemove.surname) for userToRemove in usersInProject">
     <option value="">Sélectionnez un élève</option>
   </select>
   <button ng-click="removeUser()">Supprimer</button>
 </div>
 
+<div>Modification du role d'un élève dans ce projet:
+  <select ng-model="userToChange" ng-options="userToChange as (userToChange.name + ' ' + userToChange.surname) for userToChange in usersInProject">
+    <option value="">Sélectionnez un élève</option>
+  </select>
+  <tr><td> <label>Role dans ce projet</label> </td> <td> <input type="text" name="nom" ng-model="roleToChange.name" /></td></tr>
+  <div ng-init="searchedRoles.ProjectId=idToChange">
+  <li ng-repeat="role in roles | filter:searchedRoles " ng-init="roleToChange.id=role.id" >
+  </div>
+  <button ng-click="changeRoleUser()">Modifier</button>
+</div>
 {{msg}}

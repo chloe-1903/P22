@@ -12,7 +12,7 @@ angular.module('pooIhmExemplesApp')
   .controller('ProjectsCtrl', ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
 
     $scope.showProject = function(num){
-      window.open('http://localhost:9000/#/projects/'+num,'Détails Elève','menubar=no, scrollbars=no, top=100, left=100, width=380, height=400');
+      window.open('http://localhost:9000/#/projects/'+num,'Détails Elève','menubar=no, scrollbars=no, top=100, left=100, width=430, height=460');
     };
 
     $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Projects')
@@ -36,16 +36,14 @@ angular.module('pooIhmExemplesApp')
         });
     };
 
-    $scope.userWorking=null;
 
-      $scope.roles="1";
-      $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Users/' + $scope.userWorking+ '/Roles')
-        .success(function(data) {
-          $scope.roles="2";
-          if (data.status == "success") {
-            $scope.roles = data.data;
-          }
-        });
+    $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Users//Roles')
+      .success(function (data) {
+        if (data.status == "success") {
+          $scope.roles = data.data;
+        }
+      });
+
   }]);
 
 

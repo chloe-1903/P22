@@ -11,10 +11,6 @@
 angular.module('pooIhmExemplesApp')
   .controller('ChangeProjectsCtrl', ['$scope', '$http','$routeParams', function ($scope, $http, $routeParams) {
 
-    $scope.idToChange= null;
-
-    $scope.msg = '';
-
     if($routeParams.projectId) {
       $scope.idToChange = $routeParams.projectId;
     } //sinon, afficher un message d'erreur
@@ -53,17 +49,15 @@ angular.module('pooIhmExemplesApp')
       $scope.msg = "...";
       $scope.url= "http://poo-ihm-2015-rest.herokuapp.com/api/Projects/"+ $scope.idToChange;
       $scope.res=$http.put($scope.url, $scope.projectToChange)
-        .success(function(data, status, headers, config) {
+        .success(function(data) {
           if (data.status == "success") {
             $scope.msg = "Modification effectuée.";
           }
         })
-        .error(function(data, status, headers, config) {
+        .error(function(data) {
           alert( "failure message: " + JSON.stringify({data: data}));
         });
     };
-
-    $scope.userToAdd=null;
 
     $scope.addUser = function(){
       $scope.msg = "...";
@@ -79,8 +73,6 @@ angular.module('pooIhmExemplesApp')
         });
     };
 
-    $scope.userToRemove=null;
-
     $scope.removeUser = function(){
       $scope.msg = "...";
       $scope.url= "http://poo-ihm-2015-rest.herokuapp.com/api/Projects/"+ $scope.idToChange + "/Users/" + $scope.userToRemove.id;
@@ -95,4 +87,34 @@ angular.module('pooIhmExemplesApp')
         });
     };
 
+    $scope.roleToChange=null;
+    $scope.changeRoleUser = function(){
+      $scope.msg='...';
+      //Récupération de tous les roles de l'utilisateur
+      $scope.res=$http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Users/' + $scope.userToChange.id+ '/Roles')
+        .success(function(data) {
+          if (data.status == "success") {
+            $scope.roles = data.data;
+          }
+        })
+     /* $scope.msg=$scope.roles.length;
+      for($scope.i= 0; scope.i < $scope.roles.length; $scope.i=$scope.i+1)
+      {
+        $scope.msg="j";
+        if (roles[i].ProjectId== $scope.idToChange){
+          $scope.role=roles[i];
+        }
+      };*/;
+      //pb avec roles.length, essayer $filter('limitTo')(input, limit, begin)
+
+       $scope.res=$http.put('http://poo-ihm-2015-rest.herokuapp.com/api/Users/' + $scope.userToChange.id+ '/Roles/'+roleToChange.id, $scope.roleToChange)
+       .success(function(data) {
+       if (data.status == "success") {
+          $scope.msg = "Modification effectué.";
+       }
+       })
+       .error(function(data) {
+       alert( "failure message: " + JSON.stringify({data: data}));
+       });
+    }
   }]);

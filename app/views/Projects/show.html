@@ -1,3 +1,4 @@
+<div ng-init="roleToFind.ProjectId=currentProject.id">
  <h3>{{currentProject.title}}</h3>
   <p>Projet n° {{currentProject.id}}</p>
   <p>Année {{currentProject.year}}</p>
@@ -5,14 +6,14 @@
   <p>{{currentProject.description}}</p>
   <p>Elèves ayant participé à ce projet:</p>
   <ul>
-    <li ng-repeat="user in currentProjectUsers">
-      {{user.name}} {{user.surname}} {{userWorking=user}}
-    Role: {{roles}}
-      <li ng-repeat="role in roles | filter:currentProject.id " >
-      Role: {{role.name}}
+    <li ng-repeat="user in currentProjectUsers"  ng-init="roleToFind.UserId=user.id">
+      {{user.name}} {{user.surname}}
+      <li ng-repeat="role in roles | filter:roleToFind " >
+      ({{role.name}})
       </li>
     </li>
   </ul>
+</div>
 
  <p><a href="http://localhost:9000/#/changeProject/{{currentProject.id}}">>Modifier des informations sur le projet</a></p>
  <p><a href="http://localhost:9000/#/removeProject/{{currentProject.id}}">>Supprimer ce projet</a></p>

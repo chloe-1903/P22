@@ -3,7 +3,10 @@
     <p>Numéro de l'étudiant:  {{currentUser.id}}</p>
     <p>Adresse mail: {{currentUser.email}}</p>
     <p>Site internet: <a href="{{currentUser.website}}">{{currentUser.website}}</a></p>
-    <p>Projets: A FAIRE</p>
+    <p>Projets:
+    <li ng-repeat="role in roles"> {{role.name}} - Projet {{getProjectName(role.ProjectId)}} </li>
+    {{msg}}
+    </p>
 </div>
 
 

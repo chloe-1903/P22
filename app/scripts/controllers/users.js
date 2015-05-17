@@ -27,6 +27,22 @@ angular.module('pooIhmExemplesApp')
           $scope.currentUser = data.data;
         }
       });
+      $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Users/' + $routeParams.userId +'/Roles')
+        .success(function(data) {
+          if (data.status == "success") {
+            $scope.roles = data.data;
+          }
+        });
+    }
+
+    $scope.getProjectName= function(projectId){
+      $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Projects/' + projectId)
+        .success(function(data) {
+          if (data.status == "success") {
+            return data.data.title;
+          }
+        });
+      return projectId;
     }
 
   }]);
